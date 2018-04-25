@@ -123,34 +123,34 @@ function oem_scripts() {
     // Live Version
     $live_version = oem_get_option('solar_deployment_version');
     if ( empty($live_version) ) $live_version = '1.1.1';
-    
+
     // Main Stylesheet
 	wp_enqueue_style( 'oem-style', get_stylesheet_uri(), array(), $live_version, 'all' );
-    
+
     // Main JS
-    wp_enqueue_script( 'oem-js', get_template_directory_uri() . '/js/min/theme.min.js', array(jquery), $live_version, true );
-    
+    wp_enqueue_script( 'oem-js', get_template_directory_uri() . '/js/min/theme.min.js', array('jquery'), $live_version, true );
+
     // Navigation JS
-	wp_enqueue_script( 'oem-navigation', get_template_directory_uri() . '/js/min/navigation.min.js', array(jquery), $live_version, true );
-    
+	wp_enqueue_script( 'oem-navigation', get_template_directory_uri() . '/js/min/navigation.min.js', array('jquery'), $live_version, true );
+
     // AOS **
     wp_enqueue_script( 'aos-js', get_template_directory_uri() . '/inc/aos/aos.js', array('jquery'), '2.2.0');
     wp_enqueue_style( 'aos-css', get_template_directory_uri() . '/inc/aos/aos.css', array(), '2.2.0');
-    
+
     // Animate CSS
     wp_enqueue_style( 'animateCss', get_template_directory_uri() . '/css/animate.css', array(), '');
-    
+
     // Load Fonts
     wp_enqueue_style( 'fonts-typekit', 'https://use.typekit.net/ojv1leb.css' );
-    
+
     // FontAwesome
     wp_enqueue_style( 'fontawesome-css', get_template_directory_uri() . '/css/fontAwesome/css/fontawesome-all.min.css');
-    
+
     // Owl Carousel ** http://www.owlgraphic.com/owlcarousel/index.html
     wp_enqueue_script( 'owl-carousel-js', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.min.js', array('jquery'));
-    wp_enqueue_style( 'owl-carousel-css', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.min.css');    
+    wp_enqueue_style( 'owl-carousel-css', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.min.css');
 
-	wp_enqueue_script( 'oem-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );    
+	wp_enqueue_script( 'oem-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -161,7 +161,7 @@ add_action( 'wp_enqueue_scripts', 'oem_scripts' );
 // Include the Google Analytics Tracking Code (ga.js)
 // https://developers.google.com/analytics/devguides/collection/gajs/
 function oem_google_analytics_tracking_code() {
-    
+
 	$tracking_id = oem_get_option('google_analytics_code'); // GA Property ID
 
 	if ( $tracking_id ) {
@@ -176,7 +176,7 @@ function oem_google_analytics_tracking_code() {
         ga('create', '<?php echo $tracking_id; ?>', 'auto');
         ga('send', 'pageview');
         </script>
-        <!-- End Google Analytics -->        
+        <!-- End Google Analytics -->
         <?php
     }
 }
@@ -233,4 +233,3 @@ require get_template_directory() . '/inc/shortcodes.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-
