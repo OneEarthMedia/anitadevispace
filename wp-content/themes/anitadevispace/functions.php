@@ -141,7 +141,7 @@ function oem_scripts() {
     wp_enqueue_style( 'animateCss', get_template_directory_uri() . '/css/animate.css', array(), '');
 
     // Load Fonts
-    wp_enqueue_style( 'fonts-typekit', 'https://use.typekit.net/ojv1leb.css', '', 'all' );
+    wp_enqueue_style( 'fonts-typekit', 'https://use.typekit.net/ojv1leb.css', array(), false );
 
     // FontAwesome
     wp_enqueue_style( 'fontawesome-css', get_template_directory_uri() . '/css/fontAwesome/css/fontawesome-all.min.css');
