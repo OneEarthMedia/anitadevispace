@@ -1,0 +1,104 @@
+/* [show-events] */
+/* Displays a sorted list of the EVENTS post type */
+
+#events-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    li.event {
+        margin-bottom: 35px;
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+        
+        // Header
+        .event-header {
+            @include display-flex;
+            @include align-items(center);
+            @include justify-content(space-between);
+            
+            & .name {
+                margin: 0;
+                margin-bottom: 5px;
+                margin-left: 20px;
+            }
+            
+            & .date {
+                @include font-size(1.6);
+                
+                & .start,
+                & .end {
+                    &:before {
+                        content: '\f073';
+                        font-family: 'fontAwesome';
+                        margin-right: 5px;
+                    }
+                }
+                
+                i.fas {
+                    margin: 0 15px;
+                }
+            }
+        }
+        
+        // Content
+        .event-content {
+            background: #fafafa;
+            padding: 20px;
+            @include display-flex;
+            @include align-items(center);
+            
+            & .excerpt {
+                border-right: 1px solid rgba(0,0,0,0.2);
+                padding-right: 20px;
+                margin-right: 20px;
+            }
+            
+            & .info-col {
+                text-align: center;
+                width: 150px;
+                
+                & .price {
+                    font-weight: 600;
+                    margin-bottom: 10px;
+                }
+
+                & .info-button {
+                    @include strip-link($color__highlight);
+                    @include font-size(2);
+                    
+                    &:hover {
+                        @include strip-link($color__main);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* [social-icons] */
+/* Display social from the Theme Settings page */
+#social-icons {
+    text-align: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    li {
+        display: inline-block;
+        
+        a {
+            @include strip-link($color__main);
+            @include font-size(2.5);
+            font-weight:normal;
+            padding: 0 5px;
+            margin-bottom: 20px;
+
+            &:hover {
+                background: none;
+                @include border-radius(100%);
+                color: $color__highlight;
+                color: $color__gold_2;
+            }
+        }
+    }
+}

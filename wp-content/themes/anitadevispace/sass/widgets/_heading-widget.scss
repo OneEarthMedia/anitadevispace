@@ -1,0 +1,30 @@
+/* Heading Widget Styles */
+
+.heading-widget {
+    margin-bottom: 0;
+    
+    // Size
+    &.large {
+        @include font-size(5);
+    }
+    
+    // Color
+    &.dark {
+        color: $color__main;
+    }
+    &.light {
+        color: $color__white;
+    }
+    &.highlight {
+        color: $color__highlight;
+    }
+    
+    // Alignment
+    &.center {
+        text-align: center;
+    }
+    
+    &.right {
+        text-align: right;
+    }
+}

@@ -1,0 +1,52 @@
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	border: 1px solid #ededed;
+    @include border-radius(5px);
+    font-size: 14px !important;
+    opacity: 0.6;
+	padding: 4px 8px !important;
+    @include transition-all(300ms);
+
+	&:focus {
+        opacity: 1;
+	}
+}
+
+label {
+    font-size: 13px !important;
+    text-transform: uppercase;
+}
+
+select {
+
+}
+
+textarea {
+	width: 100%;
+}
+
+// Gravity Forms Styles
+.gform_wrapper {
+    
+    & .gfield-label {
+        opacity: 0.5 !important;    
+    }   
+    
+    & div.ginput_container {
+        margin-top: 0 !important;
+    }
+}

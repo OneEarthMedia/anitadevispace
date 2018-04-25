@@ -1,0 +1,19 @@
+a {
+	color: $color__highlight;
+
+	&:visited {
+		
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		
+	}
+	&:focus {
+		outline: 0;
+	}
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}

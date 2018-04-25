@@ -1,0 +1,25 @@
+/* Testimonial Widget
+/* -------------------------- */
+#testimonial-widget-form .image-sample {
+
+    display: block;
+    width: 200px;
+    height: 200px;
+    background-size: cover !important;
+    background-position: center !important;
+    border-radius: 100%;
+    
+}
+
+/* Image Widget
+/* -------------------------- */
+#image-widget-form .image-sample {
+    
+    display: block;
+    width: 200px;
+    height: 200px;
+    background-size: cover !important;
+    background-position: center !important;
+    margin-bottom: 20px;
+    
+}

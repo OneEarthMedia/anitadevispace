@@ -1,0 +1,234 @@
+body.noscroll {
+    overflow: hidden;
+}
+
+#masthead {
+    position: fixed;
+    z-index: 9999;
+    
+    @include display-flex;
+    @include justify-content(flex-start);
+    
+    padding: 0 20px;
+    
+    width: 100%;
+
+    background: url('assets/floweroflife.png') repeat rgba(72,40,6,0.6);
+    border-bottom: 5px solid $color__highlight;
+    
+    box-shadow: 1px 5px 5px rgba(0,0,0,0.15);
+    
+    @include transition-all(600ms);
+    
+    .site-branding {
+        max-width: 300px;
+        margin: 5px 0;
+    }
+    
+    #site-navigation {
+        margin-left: auto;
+        @include align-self(flex-end);
+        
+        .toggle-mobnav {
+            position: relative;
+            display: none;
+            @include font-size(2);
+            margin-right: 25px;
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            text-align: center;
+            @include border-radius(100%);
+            background: rgba(232,174,20,0.8);
+            color: $color__main;
+            
+            & .fas {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                @include transform( translate(-50%,-50%) );
+            }
+            
+            &.toggled .fas:before {
+                content: '\f062';
+                @include font-size(2);
+            }
+        }
+        
+        .social-icons {
+            text-align: right;
+            
+            li {
+                a {
+                    @include font-size(2.2);
+                    font-weight:normal;
+                    padding: 0 5px;
+                    margin-bottom: 20px;
+                    
+                    &:hover {
+                        background: none;
+                        @include border-radius(100%);
+                        color: $color__highlight;
+                        color: $color__gold_2;
+                    }
+                }
+            }
+        }
+    }
+    
+    // Scrolled - trigger style changes upon scrolling down
+    &.scrolled {
+        background: url('assets/floweroflife.png') repeat rgba(59,34,7,0.8);
+        
+        .site-branding {
+            max-width: 222px;
+            @include transition-all(300ms);
+        }
+        
+        #site-navigation {
+            .social-icons a {
+                margin-bottom: 5px;
+            }
+        }
+        
+        @include respond-to(tablet) {
+            .site-branding {
+                max-width: 180px;
+            }
+        }
+    } 
+    
+    @include respond-to(960px) {
+        @inlude align-items(center);
+        
+        #site-navigation {
+            @include align-self(center);
+            
+            @include display-flex;
+            @include align-items(center);
+            
+            .toggle-mobnav {
+                display: block;
+            }
+            
+            .social-icons a {
+                margin-bottom: 0 !important;
+            }            
+            
+            #primary-menu {
+                display: none;
+            }
+        }
+    }
+    
+    @include respond-to(650px) {
+        padding: 0 10px;
+        
+        .site-branding {
+            max-width: 180px;
+        }
+        
+        #site-navigation {
+            .toggle-mobnav {
+                width: 35px;
+                height: 35px;
+                @include font-size(1.8);
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+#page-banner {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100vh;
+    
+    background-size: cover !important;
+    background-position: center !important;
+    
+    // Banner Content
+    .banner-content {
+        position: absolute;
+        height: 100%;
+        width: 70%;
+        
+        &.left {
+            left: 0;
+        }
+        
+        &.right {
+            right: 0;
+        }
+        
+        & .pattern-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('assets/floweroflife.png') repeat;
+            z-index: 111;
+        }
+        
+        & .content {
+            position: absolute;
+            z-index: 222;
+            padding: 0 10%;
+            color: $color__white;
+            bottom: 40px;
+            // @include transform( translateY(-50%) );
+            
+            & .heading {
+                // color: $color__gold_1;
+            }
+            
+            & .read-more {
+                @include strip-link($color__white);
+                display: block;
+                margin-top: 30px;
+                text-transform: uppercase;
+                
+                &:after {
+                    display: inline-block;
+                    content: '\f103';
+                    font-family: 'fontAwesome';
+                    margin-left: 10px;
+                    width: 30px;
+                    line-height: 30px;
+                    text-align: center;
+                    border: 1px solid $color__white;
+                    @include border-radius(100%);
+                }
+                
+                &.dark {
+                    @include strip-link($color__main);
+                    
+                    &:after {
+                        border: 1px solid $color__main;
+                    }
+                    
+                }
+            }
+        }
+        
+        @include respond-to(960px) {
+            height: 250px;
+            bottom: 0;
+            width: 80%;
+            
+            & .content {
+                @include transform( translateY(50%) );
+                bottom: 50%;
+                
+                .excerpt {
+                    display: none;
+                }
+                
+            }
+        }
+        
+        @include respond-to(tablet) {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,52 @@
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font_main; 
+	clear: both;
+    
+    font-weight: 300;
+    
+    strong {
+        font-weight: 700;
+    }
+    
+    line-height: 1.618;
+    
+    // Style
+    &.cursive {
+        font-family: $font_cursive;
+        line-height: 1.3;
+        
+        span.sub {
+            font-family: $font_main;
+            display: block;
+            font-size: 65%;
+            line-height: 0;
+        }
+    }
+    
+    // Color
+    &.dark {
+        color: $color__main;
+    }
+    &.light {
+        color: $color__white;
+    }
+    &.highlight {
+        color: $color__highlight;
+    }
+    &.gold {
+        color: $color__gold_1;
+    }
+}
+
+h1 {
+    @include font-size(5);
+    line-height: 1.3;
+}
+
+h2 {
+    @include font-size(3.5);
+}
+
+h3 {
+    @include font-size(2.2);
+}
