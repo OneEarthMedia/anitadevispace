@@ -1,0 +1,167 @@
+.edit-link {
+    a.post-edit-link {
+        display: block;
+        background: $color__gold_3;
+        width: 100%;
+        padding: 5px 0;
+        @include strip-link($color__white);
+        text-transform: uppercase;
+        text-align: center;
+        opacity: 0.5;
+        @include transition-all(300ms);
+        
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+#colophon {
+    background: url('assets/footer-bg.jpg') no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    padding: 100px 5% 20px 5%;
+    text-align: center;
+    position: relative;
+    
+    .curve-overlay {
+        
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+    
+        width: 100%;
+        height: 50px;
+        
+        background: url('assets/footer-top-curve.png') no-repeat;
+        background-size: 100% 100%;
+    }
+    
+    &.curveless {
+        padding-top: 60px;
+        
+        .curve-overlay {
+            display: none;
+        }
+    }
+    
+    .footer-newsletter {
+        h2.optin-heading {
+            margin: 0;
+        }
+        
+        .optin-form {
+            width: 80%;
+            max-width: 400px;
+            margin: 0 auto;
+            
+            .footer-optin-form {
+                @include display-flex;
+                @include justify-content(center);
+
+                .gform_body {
+
+                    ul.gform_fields {
+                        li.gfield {
+                            margin-top: 0 !important;
+                            padding-right: 0 !important;
+                            
+                            input {
+                                @include border-radius(5px 0 0 5px);
+                                line-height: 30px;
+                                margin-top: 0 !important;
+                            }
+                        }
+                    }
+                }
+                
+                .gform_footer {
+                    width: auto;
+                    padding: 0 !important;
+                    margin: 0 !important;
+                    
+                    input.gform_button {
+                        display: inline-block;
+                        background: $color__main !important;
+                        @include border-radius(0 5px 5px 0);
+                        height: 40px !important;
+                        width: 35px;
+                        padding: 10px !important;
+                        margin-bottom: 0 !important;
+                    }
+
+                }
+                
+            }            
+        }
+        
+        .optin-message {
+            max-width: 350px;
+            margin: 0 auto;
+            @include font-size(1.5);
+            
+            .fa-heart {
+                margin-left: 10px;
+            }
+        }
+    }
+    
+    .footer-navigation {
+        margin: 50px 0 20px 0;
+        #footer-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            
+            li {
+                display: inline-block;
+                
+                a {
+                    @include strip-link($color__main);
+                    @include font-size(1.8);
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    padding: 5px 10px;
+                    
+                    &:hover {
+                        
+                    }
+                }
+            }
+            
+            &:after {
+                content: ' ';
+                display: block;
+                width: 250px;
+                height: 1px;
+                background: $color__main;
+                margin: 20px auto;
+            }
+        }
+        
+        .social-icons {
+            text-align: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            
+            li {
+                display: inline-block;
+                
+                a {
+                    @include font-size(2.2);
+                    @include strip-link($color__main);
+                    font-weight:normal;
+                    padding: 0 5px;
+                    margin-bottom: 20px;
+                    
+                    &:hover {
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }        
+    }
+}

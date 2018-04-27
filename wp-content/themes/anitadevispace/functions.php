@@ -158,6 +158,9 @@ function oem_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'oem_scripts' );
 
+// Gravity Forms - Remove labels option
+add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
+
 // Include the Google Analytics Tracking Code (ga.js)
 // https://developers.google.com/analytics/devguides/collection/gajs/
 function oem_google_analytics_tracking_code() {

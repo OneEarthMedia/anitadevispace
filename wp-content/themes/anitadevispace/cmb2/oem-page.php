@@ -155,6 +155,13 @@ function oem_page_metaboxes() {
     
     // General Options
     // *****************************
+    // Hide Footer Curve
+    $oem_page_cmb->add_field( array(
+        'name' => 'Footer Curve',
+        'desc' => 'Hide Footer Curve',
+        'id'   => $prefix .'hide_footer_curve',
+        'type' => 'checkbox',
+    ) );      
     // Open Graph Image
     $oem_page_cmb->add_field( array(
         'name'    => 'Open Graph Image',
