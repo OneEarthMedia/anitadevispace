@@ -42,33 +42,35 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-            <a class="toggle-mobnav" href="#"><i class="fas fa-bars"></i></a>
-            <div class="lang-nav">
-                <?php
-                // Language Selector
-                // do_action('wpml_add_language_selector');
-                ?>
-            </div>            
-            <ul class="social-icons">
-                <?php
-                $facebook_url = oem_get_option( 'oem_facebook_url' );
-                $twitter_url = oem_get_option( 'oem_twitter_url' );
-                $instagram_url = oem_get_option( 'oem_instagram_url' );
-                $youtube_url = oem_get_option( 'oem_youtube_url' );
-                
-                if ( !empty($facebook_url) )
-                    echo '<li class="facebook"><a class="fab fa-facebook-square" href="'. $facebook_url .'" target="_blank"></a></li>';
-                
-                if ( !empty($twitter_url) )
-                    echo '<li class="facebook"><a class="fab fa-twitter" href="'. $twitter_url .'" target="_blank"></a></li>';
+            <div class="secondary-nav">
+                <a class="toggle-mobnav" href="#"><i class="fas fa-bars"></i></a>
+                <div class="lang-nav">
+                    <?php
+                    // Language Selector
+                    do_action('wpml_add_language_selector');
+                    ?>
+                </div>            
+                <ul class="social-icons">
+                    <?php
+                    $facebook_url = oem_get_option( 'oem_facebook_url' );
+                    $twitter_url = oem_get_option( 'oem_twitter_url' );
+                    $instagram_url = oem_get_option( 'oem_instagram_url' );
+                    $youtube_url = oem_get_option( 'oem_youtube_url' );
 
-                if ( !empty($instagram_url) )
-                    echo '<li class="facebook"><a class="fab fa-instagram" href="'. $instagram_url .'" target="_blank"></a></li>';
-                
-                if ( !empty($youtube_url) )
-                    echo '<li class="facebook"><a class="fab fa-youtube" href="'. $youtube_url .'" target="_blank"></a></li>'; 
-                ?>
-            </ul>            
+                    if ( !empty($facebook_url) )
+                        echo '<li class="facebook"><a class="fab fa-facebook-square" href="'. $facebook_url .'" target="_blank"></a></li>';
+
+                    if ( !empty($twitter_url) )
+                        echo '<li class="facebook"><a class="fab fa-twitter" href="'. $twitter_url .'" target="_blank"></a></li>';
+
+                    if ( !empty($instagram_url) )
+                        echo '<li class="facebook"><a class="fab fa-instagram" href="'. $instagram_url .'" target="_blank"></a></li>';
+
+                    if ( !empty($youtube_url) )
+                        echo '<li class="facebook"><a class="fab fa-youtube" href="'. $youtube_url .'" target="_blank"></a></li>'; 
+                    ?>
+                </ul>
+            </div>
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'main-nav',

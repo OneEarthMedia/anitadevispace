@@ -29,47 +29,84 @@ body.noscroll {
         margin-left: auto;
         @include align-self(flex-end);
         
-        .toggle-mobnav {
-            position: relative;
-            display: none;
-            @include font-size(2);
-            margin-right: 25px;
-            width: 40px;
-            height: 40px;
-            padding: 0;
-            text-align: center;
-            @include border-radius(100%);
-            background: rgba(232,174,20,0.8);
-            color: $color__main;
+        .secondary-nav {
+            @include display-flex();
+            @include justify-content(flex-end);
+            @include align-items(center);
+            margin-bottom: 10px;
             
-            & .fas {
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                @include transform( translate(-50%,-50%) );
-            }
-            
-            &.toggled .fas:before {
-                content: '\f062';
+            .toggle-mobnav {
+                position: relative;
+                display: none;
                 @include font-size(2);
-            }
-        }
-        
-        .social-icons {
-            text-align: right;
+                margin-right: 25px;
+                width: 40px;
+                height: 40px;
+                padding: 0;
+                text-align: center;
+                @include border-radius(100%);
+                background: rgba(232,174,20,0.8);
+                color: $color__main;
+
+                & .fas {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    @include transform( translate(-50%,-50%) );
+                }
+
+                &.toggled .fas:before {
+                    content: '\f062';
+                    @include font-size(2);
+                }
+            }            
             
-            li {
-                a {
-                    @include font-size(2.2);
-                    font-weight:normal;
-                    padding: 0 5px;
-                    margin-bottom: 20px;
+            .lang-nav {
+                .wpml-ls-legacy-list-horizontal {
+                    padding: 0;
                     
-                    &:hover {
-                        background: none;
-                        @include border-radius(100%);
-                        color: $color__highlight;
-                        color: $color__gold_2;
+                    ul {
+                        li {
+                            a.wpml-ls-link {
+                                padding-bottom: 10px;
+                                @include border-radius(5px);
+                                @include font-size(1.4);
+                                
+                                & .wpml-ls-display {
+                                    display: none;
+                                }
+                            }
+                        }
+                        
+                        &:lang(es) {
+                            .wpml-ls-item-es {
+                                display: none;
+                            }
+                        }
+                        &:lang(en) {
+                            .wpml-ls-item-en {
+                                display: none;
+                            }
+                        }                        
+                    }
+                }
+            }
+
+            .social-icons {
+                text-align: right;
+
+                li {
+                    a {
+                        @include font-size(2.2);
+                        font-weight:normal;
+                        padding: 0 5px;
+
+                        &:hover {
+                            background: none;
+                            @include border-radius(100%);
+                            color: $color__highlight;
+                            color: $color__gold_2;
+                        }
                     }
                 }
             }
@@ -107,14 +144,16 @@ body.noscroll {
             @include display-flex;
             @include align-items(center);
             
-            .toggle-mobnav {
-                display: block;
+            .secondary-nav {
+                .toggle-mobnav {
+                    display: block;
+                }
+
+                .social-icons a {
+                    margin-bottom: 0 !important;
+                }            
             }
-            
-            .social-icons a {
-                margin-bottom: 0 !important;
-            }            
-            
+                
             #primary-menu {
                 display: none;
             }

@@ -17,13 +17,13 @@ $footer_hide_curve = get_post_meta(get_the_ID(), 'oem_hide_footer_curve', true);
         <div class="curve-overlay"></div>
         
         <div class="footer-newsletter">
-            <h2 class="optin-heading cursive large center"><span class="sub">Join My</span>Love Letter</h2>
+            <h2 class="optin-heading cursive large center"><span class="sub"><?php _e('Join My', 'oem'); ?></span><?php _e('Love Letter', 'oem'); ?></h2>
             <div class="optin-form">
             <?php
             gravity_form( 2, false, false);
             ?>
             </div>
-            <p class="optin-message">I promise to only send meaningful and informative letters every couple of months <i class="fas fa-heart"></i></p>
+            <p class="optin-message"><?php _e('I promise to only send meaningful and informative letters every couple of months', 'oem'); ?> <i class="fas fa-heart"></i></p>
         </div>
         <div class="footer-navigation">
 			<?php
