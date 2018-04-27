@@ -92,6 +92,7 @@
         $banner_content['pattern'] = get_post_meta(get_the_ID(), 'oem_banner_pattern_hide', true);
         $banner_content['width'] = get_post_meta(get_the_ID(), 'oem_banner_content_width', true);
         $banner_content['align'] = get_post_meta(get_the_ID(), 'oem_banner_content_align', true);
+        $banner_content['bottom'] = get_post_meta(get_the_ID(), 'oem_banner_bottom_align', true);
         $banner_content['heading-1'] = get_post_meta(get_the_ID(), 'oem_banner_heading_1', true);
         $banner_content['heading-2'] = get_post_meta(get_the_ID(), 'oem_banner_heading_2', true);
         $banner_content['heading-style'] = get_post_meta(get_the_ID(), 'oem_banner_heading_style', true);
@@ -111,18 +112,22 @@
             $default_width = '650px';
             $defaut_align = 'left';
             
-            if ( empty($banner_content['color'] ) ) $banner_content['color'] = $default_color;
-            if ( empty($banner_content['width'] ) ) $banner_content['width'] = $default_width;
-            if ( empty($banner_content['align'] ) ) $banner_content['align'] = $default_align;
+            if ( empty($banner_content['color']) ) $banner_content['color'] = $default_color;
+            if ( empty($banner_content['width']) ) $banner_content['width'] = $default_width;
+            if ( empty($banner_content['align']) ) $banner_content['align'] = $default_align;
             
-            echo '<div class="banner-content '. $banner_content['align'] .'" style="background-color:'. $banner_content['color'] .';max-width:'. $banner_content['width'] .'">';
+            ( !empty($banner_content['bottom']) ) ? $vertical_align = 'bottom' : $vertical_align = '';
+            
+            echo '<div class="banner-content '. $banner_content['align'] .' '. $vertical_align .'" style="background-color:'. $banner_content['color'] .';max-width:'. $banner_content['width'] .'">';
                 if ( empty($banner_content['pattern']) ) {
                     echo '<div class="pattern-overlay"></div>';
                 }
                 
                 echo '<div class="content">';
                 
-                echo '<h1 class="heading cursive '. $banner_content['heading-color'] .'"><span class="sub">'. $banner_content['heading-1'] .'</span>'. $banner_content['heading-2'] .'</h1>';
+                if ( !empty($banner_content['heading-1']) ) {
+                    echo '<h1 class="heading cursive '. $banner_content['heading-color'] .'"><span class="sub">'. $banner_content['heading-1'] .'</span>'. $banner_content['heading-2'] .'</h1>';
+                }
             
                 echo '<div class="excerpt">'. $banner_content['content'] .'</div>';
                 

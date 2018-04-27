@@ -82,7 +82,7 @@ function oem_page_metaboxes() {
         'desc' => 'Disable pattern overlay',
         'id'   => $prefix .'banner_pattern_hide',
         'type' => 'checkbox',
-    ) );    
+    ) );
     $oem_banner_cmb->add_field( array(
         'name'    => 'Content Width',
         'desc'    => 'add the unit behind (e.g. PX, %, EM etc.). Default value is 650px;',
@@ -98,6 +98,13 @@ function oem_page_metaboxes() {
             'left'      => 'Left',
             'right'      => 'Right',
         ),
+    ) );
+    // Bottom Align
+    $oem_banner_cmb->add_field( array(
+        'name' => 'Bottom Align',
+        'desc' => 'Align content to the bottom',
+        'id'   => $prefix .'banner_bottom_align',
+        'type' => 'checkbox',
     ) );    
     // Content Heading
     $oem_banner_cmb->add_field( array(

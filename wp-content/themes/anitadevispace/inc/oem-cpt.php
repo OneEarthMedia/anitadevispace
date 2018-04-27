@@ -134,6 +134,13 @@ function oem_events_metaboxes() {
         'id'      => $prefix .'price',
         'type'    => 'text',
     ) );
+    // Location
+    $oem_event_cmb->add_field( array(
+        'name'    => 'Location',
+        'desc'    => 'Information about the location of the event',
+        'id'      => $prefix .'location',
+        'type'    => 'text',
+    ) );    
     // More info link
     $oem_event_cmb->add_field( array(
         'name'    => 'Info Link',
@@ -163,13 +170,6 @@ function oem_events_metaboxes() {
         'desc'    => 'Shport Description',
         'id'      => $prefix .'excerpt',
         'type'    => 'textarea_small',
-    ) );
-    // Excerpt
-    $oem_event_cmb->add_field( array(
-        'name'    => 'Description',
-        'desc'    => 'Full Description',
-        'id'      => $prefix .'descriptin',
-        'type'    => 'textarea',
     ) );
     
 }

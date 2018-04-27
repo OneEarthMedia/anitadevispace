@@ -9,10 +9,15 @@ html {
 }
 
 hr {
-	background-color: $color__text;
+	background-color: $color__main;
+    opacity: 0.2;
 	border: 0;
 	height: 1px;
-	margin-bottom: 1.5em;
+    
+    &.half {
+        width: 50%;
+        margin: 0 auto;
+    }
 }
 
 @import "lists";
@@ -24,6 +29,14 @@ img {
 
 figure {
 	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
+}
+
+blockquote {
+    @include font-size(2);
+    font-weight: 300;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
 }
 
 @import "tables";

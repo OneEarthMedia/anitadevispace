@@ -31,10 +31,11 @@ class oem_album_widget extends WP_Widget {
         if ( !empty($instance['album_select']) ) :
             
             $album_id = $instance['album_select'];
+            $album_style = $instance['album_style'];
         
             $get_album = get_post_meta($album_id, 'oem_album');
         
-            echo '<div class="album-widget owl-carousel oem-album-'. $album_id .'">';
+            echo '<div class="album-widget owl-carousel oem-album-'. $album_id .' '. $album_style .'" data-album-id="'. $album_id .'">';
             
             foreach ($get_album[0] as $image) {
                 
@@ -43,34 +44,6 @@ class oem_album_widget extends WP_Widget {
             }
         
             echo '</div>';
-        
-            ?>
-            <script type="text/javascript">
-                // Album Widget
-                // ------------------------------------
-
-                jQuery('.oem-album-<?php echo $album_id; ?>').owlCarousel({
-                    loop:true,
-                    autoplay:true,
-                    autoplayTimeout:5000,
-                    autoplayHoverPause:true,
-                    responsiveClass: true,
-                    nav: false,
-                    navText: ['<span class="album-nav fa fa-angle-left"></span>','<span class="album-nav fa fa-angle-right"></span>'],
-                    responsive: {
-                        0:{
-                            items:2,
-                        },
-                        960:{
-                            items:3,
-                        },
-                        1280:{
-                            items:5
-                        }
-                    }
-                });
-            </script>
-            <?php
         
         endif;
         
@@ -83,7 +56,7 @@ class oem_album_widget extends WP_Widget {
 	public function form( $instance ) {
         
         $album_select = !empty( $instance['album_select'] ) ? $instance['album_select'] : '';
-        $album_display = !empty( $instance['album_display'] ) ? $instance['album_display'] : '';
+        $album_style = !empty( $instance['album_style'] ) ? $instance['album_style'] : '';
         
 		?>
             <!-- Album Select -->
@@ -117,6 +90,25 @@ class oem_album_widget extends WP_Widget {
             endif;
             ?>
             </select>
+
+            <!-- Size -->
+            <p>
+            <?php
+            $album_styles = array(
+                'slideshow'    => 'Slideshow',
+                'banner'       => 'Banner',
+            );
+            ?>
+            <label for="<?php echo esc_attr($this->get_field_id( 'album_style' )); ?>"><?php esc_attr_e('Style:', 'oem'); ?></label>
+            <select class="widefat" id="<?php echo esc_attr($this->get_field_id( 'album_style' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'album_style' )); ?>">
+                <?php
+                foreach ($album_styles as $style => $name) :
+                    ($album_style == $style) ? $style_selected = 'selected' : $style_selected = '';
+                    echo '<option value="'. $style .'" '. $style_selected .'>'. $name .'</option>';
+                endforeach;
+                ?>
+            </select>
+            </p>
 		<?php
         
 	}
@@ -129,6 +121,8 @@ class oem_album_widget extends WP_Widget {
 		$instance = array();
         
         $instance['album_select'] = ( !empty( $new_instance['album_select'] ) ) ? strip_tags( $new_instance['album_select'] ) : '';
+        
+        $instance['album_style'] = ( !empty( $new_instance['album_style'] ) ) ? strip_tags( $new_instance['album_style'] ) : '';
 
 		return $instance;
         

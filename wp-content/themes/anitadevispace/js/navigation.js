@@ -51,7 +51,7 @@
     });
     
     // Mobile Navigation Subnav
-    $('#mobile-navigation li.menu-item-has-children a').click(function(e) {
+    $('#mobile-navigation li.menu-item-has-children > a').click(function(e) {
         e.preventDefault();
         
         if ( $(this).next('ul.sub-menu').hasClass('toggled') ) {

@@ -60,15 +60,21 @@ function oem_events_shortcode( $atts ) {
             $event['end-date'] = str_replace('-', '/', get_post_meta($event_id, '_oem_event_date_end', true) );
             $event['excerpt'] = get_post_meta($event_id, '_oem_event_excerpt', true);
             $event['price'] = get_post_meta($event_id, '_oem_event_price', true);
+            $event['location'] = get_post_meta($event_id, '_oem_event_location', true);
             $event['info'] = get_post_meta($event_id, '_oem_event_info', true);
             
             $output .= '<li class="event">';
             
             // Event Header
-            $output .= '<div class="event-header">';
             
-            $output .= '<h3 class="name">'. $event['name'] .'</h3>';
+            // Event Content
+            // $output .= '<div class="excerpt">'. $event['excerpt'] .'</div>';
             
+            // Name col
+            $output .= '<div class="column name-col"><h3 class="name">'. $event['name'] .'</h3><p class="excerpt">'. $event['excerpt'] .'</p></div>';
+            
+            // Date Col
+            $output .= '<div class="date-col">';
             if ( !empty($event['end-date']) ) {
                 // Start and end date with arrow inbetween
                 $output .= '<div class="date"><span class="start">'. $event['start-date'] .'</span><i class="fas fa-long-arrow-alt-right"></i><span class="end">'. $event['end-date'] .'</span></div>';
@@ -76,18 +82,15 @@ function oem_events_shortcode( $atts ) {
                 // Start Date Only
                 $output .= '<div class="date"><span class="start">'. $event['start-date'] .'</span></div>';
             }
-            
+            $output .= '<div class="column location">'. $event['location'] .'</div>';
             $output .= '</div>';
             
-            // Event Content
-            $output .= '<div class="event-content">';
-            $output .= '<div class="excerpt">'. $event['excerpt'] .'</div>';
-            $output .= '<div class="info-col">';
+            // Info Col
+            $output .= '<div class="column info-col">';
             if ( !empty($event['price']) )
                 $output .= '<div class="price">'. $event['price'] .'</div>';
-            $output .= '<a href="'. $event['info'] .'" class="info-button"><i class="fas fa-info-circle"></i></a>';
-            $output .= '</div>';
-            $output .= '</div>';
+            $output .= '<a href="'. $event['info'] .'" class="info-button"><i class="fas fa-info-circle"></i><span>info</span></a>';
+            $output .= '</div>';            
             
             $output .= '</li>';
 

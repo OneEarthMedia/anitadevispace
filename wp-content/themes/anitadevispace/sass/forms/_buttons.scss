@@ -8,17 +8,22 @@ input[type="submit"],
 	// background: $color__highlight;
     background: linear-gradient( $color__gold_2, $color__gold_1 );
 	color: $color__white;
+    @include strip-link($color__white);    
 	line-height: 1;
 	padding: 10px 25px 7px 25px;
     @include transition-all(300ms);
     cursor: pointer;
 
 	&:hover {
-        color: $color__main;
+        color: $color__main !important;
 	}
 
 	&:active,
 	&:focus {
 
 	}
+}
+
+a.button {
+    padding: 10px 25px 10px 25px;
 }

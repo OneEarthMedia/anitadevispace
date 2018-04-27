@@ -13,6 +13,39 @@
         border: 1px solid $color__white;
     }
     
+    // Banner style album
+    &.banner {
+        height: 600px;
+        
+        .album-image {
+            height: 600px;
+        }
+        
+        @include respond-to(small-screen) {
+            height: 500px;
+            
+            .album-image {
+                height: 500px;
+            }
+        }
+        
+        @include respond-to(960px) {
+            height: 400px;
+            
+            .album-image {
+                height: 400px;
+            }
+        }
+        
+        @include respond-to(tablet) {
+            height: 350px;
+            
+            .album-image {
+                height: 350px;
+            }
+        }        
+    }    
+    
     .owl-dots {
         text-align: center;
         

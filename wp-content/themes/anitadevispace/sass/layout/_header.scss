@@ -150,6 +150,7 @@ body.noscroll {
     
     // Banner Content
     .banner-content {
+        overflow: scroll;
         position: absolute;
         height: 100%;
         width: 70%;
@@ -174,12 +175,15 @@ body.noscroll {
             position: absolute;
             z-index: 222;
             padding: 0 10%;
+            padding-bottom: 40px;
             color: $color__white;
-            bottom: 40px;
+            // bottom: 40px;
+            top: 200px;
             // @include transform( translateY(-50%) );
             
             & .heading {
                 // color: $color__gold_1;
+                // margin-top: 110px;
             }
             
             & .read-more {
@@ -212,18 +216,19 @@ body.noscroll {
             }
         }
         
+        // Content vertically aligned to the bottom
+        &.bottom {
+            & .content {
+                top: auto;
+                bottom: 60px;
+            }
+        }
+        
         @include respond-to(960px) {
-            height: 250px;
-            bottom: 0;
-            width: 80%;
+            width: 100%;
             
             & .content {
-                @include transform( translateY(50%) );
-                bottom: 50%;
-                
-                .excerpt {
-                    display: none;
-                }
+
                 
             }
         }

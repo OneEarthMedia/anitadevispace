@@ -14,7 +14,7 @@
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
             <?php $footer_copyright = str_replace( '[year]', date('Y'), oem_get_option('footer_copyright') ); ?>
-            <div class="footer-copyright"><?php echo $footer_copyright; ?></div>
+            <div class="footer-copyright"><?php // echo $footer_copyright; ?></div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 
